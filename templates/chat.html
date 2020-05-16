@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<!-- Custom CSS for chat -->
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/chat.css') }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+{% endblock head %}
+
+{% block chat %}
+<div style="overflow:auto;" class="messsages_container">
+
+    <div class="messages">
+        <div class="msg_history">
+        </div>
+        <div class="type_msg">
+            <form id="messageForm" class="input_msg_write">
+                <input type="text" id="userMessage" class="write_msg"  name="message" placeholder="Type a message" />
+                <button class="msg_send_btn" type="submit"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock chat %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock scripts %}
